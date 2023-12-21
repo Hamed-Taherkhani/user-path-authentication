@@ -69,5 +69,8 @@ module.exports.login_post = async (req, res) => {
 };
 
 module.exports.logout_get = (req, res) => {
-  res.send("logout");
+  res.cookie("token", undefined, {
+    maxAge: 0,
+  });
+  res.status(204).send();
 };
